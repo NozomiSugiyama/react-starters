@@ -1,0 +1,74 @@
+import { Typography } from "@material-ui/core";
+import AppBar, { AppBarProps } from "@material-ui/core/AppBar";
+import IconButton, { IconButtonProps } from "@material-ui/core/IconButton";
+import Toolbar, { ToolbarProps } from "@material-ui/core/Toolbar";
+import MenuIcon from "@material-ui/icons/Menu";
+import React, { useContext } from "react";
+import DrawerContext from "src/contexts/DrawerContext";
+import styled from "styled-components";
+
+export interface HeaderProps extends React.Props<{}> {
+    title: JSX.Element;
+}
+
+export default (
+    {
+        title,
+        ...props
+    }: HeaderProps
+) => {
+    const drawer = useContext(DrawerContext);
+
+    return (
+        <StyledAppBar
+            position="fixed"
+            {...props}
+        >
+            <StyledToolbar>
+                <MenuIconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={drawer.toggleDrawer}
+                >
+                    <MenuIcon/>
+                </MenuIconButton>
+                <Typography variant="h6" color="inherit">
+                    {title}
+                </Typography>
+                <div>
+                    WIP
+                </div>
+            </StyledToolbar>
+        </StyledAppBar>
+    );
+};
+
+const StyledAppBar = styled(AppBar as React.SFC<AppBarProps>)`
+    && {
+        width: calc(100% - 17rem - 6rem);
+        margin: 1rem 3rem 0 2rem;
+        border-radius: 8px;
+        color: #333;
+        background-color: white;
+        @media (max-width: 767px) {
+            width: calc(100% - 6rem);
+        }
+    }
+`;
+
+const MenuIconButton = styled(IconButton as React.SFC<IconButtonProps>)`
+    && {
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+`;
+
+const StyledToolbar = styled(Toolbar as React.SFC<ToolbarProps>)`
+    && {
+        display: flex;
+        > :nth-child(2) {
+            flex-grow: 1;
+        }
+    }
+`;
