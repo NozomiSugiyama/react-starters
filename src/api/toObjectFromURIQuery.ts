@@ -6,8 +6,8 @@ export default (search: string): { [key: string]: string } | undefined => (
                 (prev, next) => {
                     const y = next.match(/^(.*)=(.*)/);
                     return (
-                        y ? Object.assign(prev, { [y[1]]: y[2] })
-                    :     prev
+                        y ? Object.assign(prev, { [decodeURI(y[1])]: decodeURI(y[2]) })
+                      :     prev
                     );
                 },
                 {}
