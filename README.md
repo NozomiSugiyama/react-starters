@@ -26,15 +26,6 @@ $ yarn start
 ```
 
 ### Deploy
-#### AWS CLI
-##### Install AWS CLI
-```bash
-$ brew install awscli
-or
-$ pip install awscli
-or
-$ easy_install pip
-```
 
 
 ##### Develop
