@@ -8,9 +8,6 @@ const StyledFab = styled(Fab as React.SFC<FabProps>)`
         right: 0;
         bottom: 0;
         margin: 2rem;
-        @media (max-width: 768px) {
-            bottom: 2rem;
-        }
     }
 `;
 
