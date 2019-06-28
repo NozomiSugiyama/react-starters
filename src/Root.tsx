@@ -1,11 +1,11 @@
-import { MuiThemeProvider } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 import React from "react";
-import Auth from "src/components/wrappers/Auth";
-import ErrorBoundary from "src/components/wrappers/ErrorBoundary";
-import MainLayout from "src/components/wrappers/MainLayout";
-import Notification from "src/components/wrappers/Notification";
-import RouterHistory from "src/components/wrappers/RouterHistory";
+import Auth from "src/components/containers/Auth";
+import ErrorBoundary from "src/components/containers/ErrorBoundary";
+import MainLayout from "src/components/containers/MainLayout";
+import Notification from "src/components/containers/Notification";
+import RouterHistory from "src/components/containers/RouterHistory";
 
 // Do not change of componet order
 export default (
@@ -15,7 +15,7 @@ export default (
 ) => (
     <ErrorBoundary>
         <RouterHistory>
-            <MuiThemeProvider theme={theme}>
+            <ThemeProvider theme={theme}>
                 <Notification>
                     <Auth>
                         <MainLayout>
@@ -23,15 +23,12 @@ export default (
                         </MainLayout>
                     </Auth>
                 </Notification>
-            </MuiThemeProvider>
+            </ThemeProvider>
         </RouterHistory>
     </ErrorBoundary>
 );
 
 const theme = createMuiTheme({
-    typography: {
-        useNextVariants: true,
-    },
     overrides: {
         MuiDrawer: {
             paper: {

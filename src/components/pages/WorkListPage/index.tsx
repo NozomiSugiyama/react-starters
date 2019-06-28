@@ -15,7 +15,7 @@ export default (props: React.Props<{}>) => {
             {...props}
         >
             <Header
-                title={<LocationText text="Works"/>}
+                appTitle={<LocationText text="Works"/>}
             />
                 <div>Test</div>
             <Fab

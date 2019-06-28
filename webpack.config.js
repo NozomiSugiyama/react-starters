@@ -72,7 +72,7 @@ module.exports = {
         ),
         new HtmlWebpackPlugin({
             hash: true,
-            title: "Portal" + (NODE_ENV === "development" ? " - dev" : ""),
+            title: "Service Name" + (NODE_ENV === "development" ? " - dev" : ""),
             minify: (
                 NODE_ENV === "production" ? {
                     caseSensitive: true,

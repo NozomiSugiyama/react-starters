@@ -45,7 +45,7 @@ export default class Navigator extends React.Component<Props, State> {
             <Host {...props}>
                 <Title variant="h2">
                     <Link to="/">
-                        PORTAL
+                        Service Name
                     </Link>
                 </Title>
                 <Divider/>

@@ -30,7 +30,6 @@ export default (
             value={{
                 token,
                 // TODO
-                idToken: () => {},
                 signIn: (_email: string, _password: string) => new Promise((_resolve, _reject) => {}),
                 signOut: () => new Promise((_resolve, _reject) => {}),
                 signUp: (_userName, _password, _attribute) => new Promise((_resolve, _reject) => {}),

@@ -67,7 +67,7 @@ const StyledSnackbarContentBase = styled(SnackbarContent as React.SFC<SnackbarCo
     }
 `;
 
-const StyledSnackbarContent = withTheme()(
+const StyledSnackbarContent = withTheme(
     (props: any) => <StyledSnackbarContentBase {...props}/>
 );
 

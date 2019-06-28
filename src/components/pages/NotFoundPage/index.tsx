@@ -13,7 +13,7 @@ export default (props: React.Props<{}>) => {
             {...props}
         >
             <Header
-                title={<LocationText text="Not Found"/>}
+                appTitle={<LocationText text="Not Found"/>}
             />
             <Content>
                 <NotFound/>

@@ -90,7 +90,7 @@ jobs:
       - run: aws configure set default.region ap-northeast-1
       - run:
           name: Deploy assets directory
-          command: aws s3 sync ./assets s3://souzou-portal/ --exclude '.DS_Store' --acl public-read --cache-control 'max-age=3600'
+          command: aws s3 sync ./assets s3://domain/ --exclude '.DS_Store' --acl public-read --cache-control 'max-age=3600'
       - run:
           name: Deploy dist directory
-          command: aws s3 sync ./dist s3://souzou-portal/  --exclude '.DS_Store' --acl public-read --cache-control 'max-age=3600'
+          command: aws s3 sync ./dist s3://domain/  --exclude '.DS_Store' --acl public-read --cache-control 'max-age=3600'

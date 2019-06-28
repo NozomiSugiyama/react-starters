@@ -7,13 +7,13 @@ import React, { useContext } from "react";
 import DrawerContext from "src/contexts/DrawerContext";
 import styled from "styled-components";
 
-export interface HeaderProps extends React.Props<{}> {
-    title: JSX.Element;
+export interface HeaderProps extends AppBarProps {
+    appTitle: JSX.Element;
 }
 
 export default (
     {
-        title,
+        appTitle,
         ...props
     }: HeaderProps
 ) => {
@@ -33,7 +33,7 @@ export default (
                     <MenuIcon/>
                 </MenuIconButton>
                 <Typography variant="h6" color="inherit">
-                    {title}
+                    {appTitle}
                 </Typography>
                 <div>
                     WIP
