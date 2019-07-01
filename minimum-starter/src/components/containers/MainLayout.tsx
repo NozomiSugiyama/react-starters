@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Drawer from "src/components/atoms/Drawer";
 import Navigator from "src/components/molecules/Navigator";
 import DrawerContext from "src/contexts/DrawerContext";
@@ -21,6 +21,18 @@ export default (
 
     const handleLocale = () => setLocation(location === "us" ? "jp" : "us");
 
+    const [drawerFixed, setDrawerFixed] = useState<boolean>(false);
+    useEffect(
+        () => {
+            const handleResize = () => setDrawerFixed(window.innerWidth > 767);
+            handleResize();
+            window.addEventListener("resize", handleResize);
+
+            return () => window.removeEventListener("resize", handleResize);
+        },
+        []
+    );
+
     return (
         <Host>
             <LocalizationContext.Provider
@@ -35,10 +47,13 @@ export default (
                         open: () => setDrawerOpen(true),
                         close: () => setDrawerOpen(false),
                         toggleDrawer: () => setDrawerOpen(!drawerOpend),
-                        opend: drawerOpend
+                        opend: drawerOpend,
+                        fixed: drawerFixed
                     }}
                 >
-                    <Drawer>
+                    <Drawer
+                        fixed={drawerFixed}
+                    >
                         <Navigator/>
                     </Drawer>
                     <Content>

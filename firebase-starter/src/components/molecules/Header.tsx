@@ -33,9 +33,11 @@ const Header = (
 ) => {
     return (
         <AppBar>
-            <IconToggle>
-                <HamburgerIcon onClick={drawer.toggleDrawer}/>
-            </IconToggle>
+            {!drawer.fixed && (
+                <IconToggle>
+                    <HamburgerIcon onClick={drawer.toggleDrawer}/>
+                </IconToggle>
+            )}
             <Title>{title}</Title>
         </AppBar>
     );
@@ -53,7 +55,7 @@ const AppBar = styled.header`
         top: 0;
         box-shadow: -1px 1px 5px 2px rgba(0, 0, 0, .3);
         display: flex;
-        padding: .5rem 1rem;
+        padding: .8rem 1rem;
         @media (max-width: 767px) {
             width: calc(100% - 2rem);
             margin: 2rem 1rem 1rem;

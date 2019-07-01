@@ -3,16 +3,17 @@ import DrawerContext from "src/contexts/DrawerContext";
 import styled from "styled-components";
 
 interface DrawerProps extends React.Props<HTMLElement> {
+    fixed: boolean;
 }
 
 export default (
     {
+        fixed,
         ...props
     }: DrawerProps
 ) => {
     const drawer = useContext(DrawerContext);
     const [size, setSize] = useState<[number, number] | null>(null);
-    const [fixed, setFixed] = useState<boolean>(false);
     const hostRef = useRef<HTMLElement>(null);
 
     useEffect(
@@ -24,17 +25,6 @@ export default (
                     rect.height
                 ]);
             }
-        },
-        []
-    );
-
-    useEffect(
-        () => {
-            const handleResize = () => setFixed(window.innerWidth > 767);
-            handleResize();
-            window.addEventListener("resize", handleResize);
-
-            return () => window.removeEventListener("resize", handleResize);
         },
         []
     );

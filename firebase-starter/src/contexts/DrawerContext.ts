@@ -5,6 +5,7 @@ export type DrawerValue = {
     open: () => void,
     close: () => void,
     opend: boolean,
+    fixed: boolean
 };
 
 // It is declared by React Component
@@ -13,5 +14,6 @@ export default createContext<DrawerValue>({
     toggleDrawer: () => undefined,
     open: () => undefined,
     close: () => undefined,
-    opend: false
+    opend: false,
+    fixed: false
 });
