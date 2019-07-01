@@ -85,13 +85,13 @@ const Host = styled.div<HostProps>`
     color           : #FFF;
     font-size       : .875rem;
     background-color: ${(props) => (
-        props.type === "error" ? "#D32F2F;"
-      :                          "#FAFBFD;"
-    )}
+        props.type === "error" ? "#D32F2F"
+      :                          "#FAFBFD"
+    )};
     ${(props) => (
-        props.visibled ? "animation: show .2s ease-out both;"
-      :                  "animation: hide .2s ease-out both;"
-    )}
+        props.visibled ? "animation: show .2s ease-out both"
+      :                  "animation: hide .2s ease-out both"
+    )};
 
     > :nth-child(1) {
         padding: 14px 0;

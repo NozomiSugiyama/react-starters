@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Drawer from "src/components/atoms/Drawer";
 import Navigator from "src/components/molecules/Navigator";
 import DrawerContext from "src/contexts/DrawerContext";
 import LocalizationContext from "src/contexts/LocalizationContext";
@@ -18,7 +19,6 @@ export default (
     );
     const [drawerOpend, setDrawerOpen] = useState<boolean>(false);
 
-    const toggleDrawer = () => setDrawerOpen(!drawerOpend);
     const handleLocale = () => setLocation(location === "us" ? "jp" : "us");
 
     return (
@@ -30,28 +30,21 @@ export default (
                     locationText: locationTextList[location]
                 }}
             >
-                <div>
-                    <Drawer
-                        open={drawerOpend}
-                        onClose={toggleDrawer}
-                    >
+                <DrawerContext.Provider
+                    value={{
+                        open: () => setDrawerOpen(true),
+                        close: () => setDrawerOpen(false),
+                        toggleDrawer: () => setDrawerOpen(!drawerOpend),
+                        opend: drawerOpend
+                    }}
+                >
+                    <Drawer>
                         <Navigator/>
                     </Drawer>
-                </div>
-                <div>
-                    <Drawer
-                        open
-                    >
-                        <Navigator/>
-                    </Drawer>
-                </div>
-                <Content>
-                    <DrawerContext.Provider
-                        value={{ toggleDrawer }}
-                    >
-                        {children}
-                    </DrawerContext.Provider>
-                </Content>
+                    <Content>
+                            {children}
+                    </Content>
+                </DrawerContext.Provider>
             </LocalizationContext.Provider>
         </Host>
     );
@@ -59,21 +52,6 @@ export default (
 
 const Host = styled.div`
     background-color: #fafbfd;
-    > :nth-child(1) {
-        display: none;
-    }
-    > :nth-child(2) {
-        display: flex;
-    }
-
-    @media (max-width: 767px) {
-        > :nth-child(1) {
-            display: flex;
-        }
-        > :nth-child(2) {
-            display: none;
-        }
-    }
 `;
 
 const Content = styled.main`
@@ -85,22 +63,3 @@ const Content = styled.main`
         margin-left: 0rem;
     }
 `;
-
-// TODO: Create Drawer
-type DrawerProps = React.Props<HTMLDivElement> & {
-    open: boolean;
-    onClose?: () => void;
-};
-
-const Drawer = (
-    {
-        open,
-        onClose,
-        ...props
-    }: DrawerProps
-) => {
-    console.log(open, onClose);
-    return (
-        <div {...props}/>
-    );
-};

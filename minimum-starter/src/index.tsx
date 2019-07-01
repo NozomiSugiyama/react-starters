@@ -9,8 +9,7 @@ console.log(
   （ =･ω･）
 .c(,_ｕｕﾉ
 %c%c
-created by  : https://github.com/ictsc
-score-server: https://github.com/ictsc/ictsc-score-server
+created by  :
 NODE_ENV    : ${process.env.NODE_ENV}
 VERSION     : ${process.env.VERSION}`,
     "color:#ff9100;font-size:24px;line-height:24px;",
