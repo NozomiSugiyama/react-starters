@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Root from "src/Root";
 import {
     NotFoundPage,
-    WorkListPage
+    TopPage
 } from "src/Routes";
 
 export default () => (
@@ -12,12 +12,12 @@ export default () => (
             <Switch>
                 <Route
                     path="/"
-                    component={WorkListPage}
+                    component={TopPage}
                     exact={true}
                 />
                 <Route
-                    path="/works"
-                    component={WorkListPage}
+                    path="/top"
+                    component={TopPage}
                 />
                 <Route component={NotFoundPage}/>
             </Switch>

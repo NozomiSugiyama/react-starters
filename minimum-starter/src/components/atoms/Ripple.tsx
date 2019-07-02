@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export interface RippleProps<T> extends React.Props<HTMLDivElement> {
     component: JSX.Element;
-    disabled: boolean;
-    fixed: boolean;
+    disabled?: boolean;
+    fixed?: boolean;
     onClick?: (e: React.MouseEvent<T, MouseEvent>) => void;
 }
 

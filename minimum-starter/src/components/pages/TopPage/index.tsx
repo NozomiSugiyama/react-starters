@@ -1,7 +1,7 @@
 import React from "react";
 import LocationText from "src/components/atoms/LocationText";
 import Header from "src/components/molecules/Header";
-import Host from "src/components/pages/WorkListPage/Host";
+import Host from "src/components/pages/TopPage/Host";
 
 export default (props: React.Props<{}>) => {
     return (
@@ -10,7 +10,7 @@ export default (props: React.Props<{}>) => {
             {...props}
         >
             <Header
-                title={<LocationText text="Works"/>}
+                title={<LocationText text="Top"/>}
             />
             <div>Test</div>
         </Host>

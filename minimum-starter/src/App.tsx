@@ -3,24 +3,32 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Root from "src/Root";
 import {
     NotFoundPage,
-    WorkListPage
+    TopPage
 } from "src/Routes";
+import styled from "styled-components";
 
 export default () => (
-    <BrowserRouter>
-        <Root>
-            <Switch>
-                <Route
-                    path="/"
-                    component={WorkListPage}
-                    exact={true}
-                />
-                <Route
-                    path="/works"
-                    component={WorkListPage}
-                />
-                <Route component={NotFoundPage}/>
-            </Switch>
-        </Root>
-    </BrowserRouter>
+    <Theme>
+        <BrowserRouter>
+            <Root>
+                <Switch>
+                    <Route
+                        path="/"
+                        component={TopPage}
+                        exact={true}
+                    />
+                    <Route
+                        path="/top"
+                        component={TopPage}
+                    />
+                    <Route component={NotFoundPage}/>
+                </Switch>
+            </Root>
+        </BrowserRouter>
+    </Theme>
 );
+
+const Theme = styled.div`
+    --main-color: #FAFBFD;
+    --font-color: black;
+`;

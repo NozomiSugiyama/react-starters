@@ -1,55 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
+import FlexibleSpace from "src/components/atoms/FlexibleSpace";
 import Link from "src/components/atoms/Link";
-// import LocalizationContext, { LocalizationValue } from "src/contexts/LocalizationContext";
-// import NotificationContext, { NotificationValue } from "src/contexts/NotificationContext";
-// import RouterHistoryContext, { RouterHistoryValue } from "src/contexts/RouterHistoryContext";
+import List from "src/components/atoms/List";
+import ListItem from "src/components/atoms/ListItem";
+import DrawerContext from "src/contexts/DrawerContext";
 import styled from "styled-components";
 
-// export default React.forwardRef((props, ref) => (
-//     <RouterHistoryContext.Consumer>
-//         {routerHistory => (
-//             <NotificationContext.Consumer>
-//                 {notification => (
-//                     <Navigator
-//                         routerHistory={routerHistory}
-//                         notification={notification}
-//                         {...props}
-//                         ref={ref as any}
-//                     />
-//                 )}
-//             </NotificationContext.Consumer>
-//         )}
-//     </RouterHistoryContext.Consumer>
-// ));
-
-interface State {
-    tagListVisible: boolean;
-    tags: string[];
+export interface NavigatorProps extends React.Props<{}> {
 }
 
-interface Props {
-}
-
-export default class Navigator extends React.Component<Props, State> {
-
-    render() {
-
-        const {
-            ...props
-        } = this.props;
-
-        return (
-            <Host {...props}>
-                <Title>
-                    <Link to="/">
-                        Service Name
-                    </Link>
-                </Title>
-                <hr/>
-            </Host>
-        );
-    }
-}
+export default (props: NavigatorProps) => {
+    const drawer = useContext(DrawerContext);
+    return (
+        <Host {...props} ref={props.ref as any}>
+            <Title drawerFixed={drawer.fixed}>
+                <Link to="/">
+                    ICTSC
+                </Link>
+            </Title>
+            <Line/>
+            <List>
+                <Link to="/top">
+                    <ListItem button>
+                        トップ
+                    </ListItem>
+                </Link>
+            </List>
+            <FlexibleSpace/>
+            <Line/>
+        </Host>
+    );
+};
 
 const Host = styled.div`
     display: flex;
@@ -62,12 +43,23 @@ const Host = styled.div`
     box-sizing: border-box;
 `;
 
-const Title = styled.h2`
-    && {
-        font-size: 2rem;
+interface TitleProps {
+    drawerFixed: boolean;
+}
+
+const Title = styled.h2<TitleProps>`
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: .4rem;
+    ${props => props.drawerFixed ? `
+        padding-bottom: .5rem;
+    `                            : `
         padding-top: 1.5rem;
         padding-bottom: 1rem;
-        text-align: center;
-        letter-spacing: .4rem;
+    `
     }
+`;
+
+const Line = styled.hr`
+    border: .5px solid var(--main-color, #888);
 `;

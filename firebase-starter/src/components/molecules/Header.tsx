@@ -49,8 +49,8 @@ const AppBar = styled.header`
         width: calc(100% - 17rem - 6rem);
         margin: 1rem 3rem 0 2rem;
         border-radius: 8px;
-        color: #333;
-        background-color: white;
+        color: var(--font-color, #333);
+        background-color: var(--main-color, white);
         position: fixed;
         top: 0;
         box-shadow: -1px 1px 5px 2px rgba(0, 0, 0, .3);
