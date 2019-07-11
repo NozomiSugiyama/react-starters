@@ -1,16 +1,5 @@
 # web starter kit
 
-## Getting Started
-### Prerequisites
-
-```bash
-$ yarn -v
-1.7.0
-
-$ node -v
-v10.9.0
-```
-
 ### Development
 
 #### Setup
