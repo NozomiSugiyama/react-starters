@@ -2,6 +2,8 @@ import CircularProgress, { CircularProgressProps } from "@material-ui/core/Circu
 import React from "react";
 import styled from "styled-components";
 
+export type ProgressProps = CircularProgressProps;
+
 export default (props: CircularProgressProps) => (
     <Host>
         <CircularProgress {...props}/>

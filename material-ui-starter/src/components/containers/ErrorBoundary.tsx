@@ -7,7 +7,7 @@ export interface ErrorBoundaryState {
     hasError: boolean;
 }
 
-export default class ErrorBoundary extends React.Component<React.Props<{}>, ErrorBoundaryState> {
+export default class ErrorBoundary extends React.Component<{ children?: React.ReactNode }, ErrorBoundaryState> {
     state: ErrorBoundaryState = { hasError: false };
 
     resetPage = () => {
@@ -57,7 +57,7 @@ export default class ErrorBoundary extends React.Component<React.Props<{}>, Erro
                     <hr/>
                     <h2>Debug message for developer</h2>
                     <pre>{this.state.error && (this.state.error.message || this.state.error.toString())}</pre>
-                    <pre>{this.state.info}</pre>
+                    <pre>{JSON.stringify(this.state.info)}</pre>
                 </div>
             );
         }

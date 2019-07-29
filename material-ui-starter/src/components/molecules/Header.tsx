@@ -1,7 +1,7 @@
 import { Typography } from "@material-ui/core";
 import AppBar, { AppBarProps } from "@material-ui/core/AppBar";
-import IconButton, { IconButtonProps } from "@material-ui/core/IconButton";
-import Toolbar, { ToolbarProps } from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Toolbar from "@material-ui/core/Toolbar";
 import MenuIcon from "@material-ui/icons/Menu";
 import React, { useContext } from "react";
 import DrawerContext from "src/contexts/DrawerContext";
@@ -43,7 +43,7 @@ export default (
     );
 };
 
-const StyledAppBar = styled(AppBar as React.SFC<AppBarProps>)`
+const StyledAppBar = styled(AppBar)`
     && {
         width: calc(100% - 17rem - 6rem);
         margin: 1rem 3rem 0 2rem;
@@ -56,7 +56,7 @@ const StyledAppBar = styled(AppBar as React.SFC<AppBarProps>)`
     }
 `;
 
-const MenuIconButton = styled(IconButton as React.SFC<IconButtonProps>)`
+const MenuIconButton = styled(IconButton)`
     && {
         @media (min-width: 768px) {
             display: none;
@@ -64,7 +64,7 @@ const MenuIconButton = styled(IconButton as React.SFC<IconButtonProps>)`
     }
 `;
 
-const StyledToolbar = styled(Toolbar as React.SFC<ToolbarProps>)`
+const StyledToolbar = styled(Toolbar)`
     && {
         display: flex;
         > :nth-child(2) {

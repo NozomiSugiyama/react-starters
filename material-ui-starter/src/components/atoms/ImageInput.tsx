@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "src/components/atoms/Image";
 import styled from "styled-components";
 
-export interface ImageInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface ImageInputProps extends React.ComponentProps<typeof StyledInput> {
     defaultImageUrl?: string;
     hintText?: string;
     labelText?: string;
@@ -11,7 +11,6 @@ export interface ImageInputProps extends React.InputHTMLAttributes<HTMLInputElem
 
 export default (
     {
-        className,
         defaultImageUrl,
         disabled = false,
         height = "",
@@ -54,9 +53,7 @@ export default (
     const id = props.id ? props.id : name;
 
     return (
-        <Host
-            className={className}
-        >
+        <Host>
             <StyledLabel
                 htmlFor={id}
             >
@@ -98,7 +95,7 @@ const Host = styled.div`
     display: flex;
 `;
 
-const StyledImage = styled(Image as React.SFC<React.ImgHTMLAttributes<HTMLImageElement>>)`
+const StyledImage = styled(Image)`
     border: 1px solid #DDD;
     height: calc(100% - 1.1rem);
 `;
@@ -118,13 +115,13 @@ interface LabelTextProps {
     disabled: boolean;
 }
 
-const LabelText = styled("span")`
+const LabelText = styled("span")<LabelTextProps>`
     :not(:empty) {
         display      : inline-block;
         margin-bottom: 8px;
         font-size    : .75rem;
         transition   : all .3s ease-out;
-        color        : ${(props: LabelTextProps) => (
+        color        : ${props => (
                              props.invalid  ? "#F40"
                            : props.focused  ? "#2196F3"
                            : props.disabled ? "#DDD"

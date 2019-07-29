@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-interface Props extends React.Props<{}> {
+export interface ViewPagerProps extends React.ComponentProps<typeof Host> {
     children: React.ReactNode;
     selectedIndex: number;
 }
@@ -11,7 +11,7 @@ export default (
         children,
         selectedIndex,
         ...props
-    }: Props
+    }: ViewPagerProps
 ) => (
     <Host>
         {React.Children.toArray(children).map(

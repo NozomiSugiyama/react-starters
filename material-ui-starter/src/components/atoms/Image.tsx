@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+type ImageProps = React.ComponentProps<"img">;
+
 export default (
     {
         alt,
@@ -13,7 +15,7 @@ export default (
         style,
         width,
         ...props
-    }: React.ImgHTMLAttributes<HTMLImageElement>
+    }: ImageProps
 ) => (
     <Host
         style={{

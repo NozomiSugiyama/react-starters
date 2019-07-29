@@ -1,5 +1,5 @@
 import Divider from "@material-ui/core/Divider";
-import Typography, { TypographyProps } from "@material-ui/core/Typography";
+import Typography from "@material-ui/core/Typography";
 // import StarIcon from "@material-ui/icons/Star";
 import React from "react";
 import Link from "src/components/atoms/Link";
@@ -30,10 +30,10 @@ interface State {
     tags: string[];
 }
 
-interface Props {
+export interface NavigatorProps extends React.ComponentProps<typeof Host> {
 }
 
-export default class Navigator extends React.Component<Props, State> {
+export default class Navigator extends React.Component<NavigatorProps, State> {
 
     render() {
 
@@ -65,7 +65,7 @@ const Host = styled.div`
     box-sizing: border-box;
 `;
 
-const Title = styled(Typography as React.SFC<TypographyProps>)`
+const Title = styled(Typography)`
     && {
         font-size: 2rem;
         padding-top: 1.5rem;

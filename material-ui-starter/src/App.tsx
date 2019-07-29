@@ -13,11 +13,12 @@ export default () => (
                 <Route
                     path="/"
                     component={TopPage}
-                    exact={true}
+                    exact
                 />
                 <Route
                     path="/top"
                     component={TopPage}
+                    exact
                 />
                 <Route component={NotFoundPage}/>
             </Switch>

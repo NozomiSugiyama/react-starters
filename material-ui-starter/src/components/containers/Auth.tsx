@@ -10,7 +10,9 @@ import AuthContext, { Token } from "src/contexts/AuthContext";
 export default (
     {
         children
-    }: React.Props<{}>
+    }: {
+        children?: React.ReactNode
+    }
 ) => {
 
     // const [subscribers, setSubscribers] = useState<Subscriber[]>([]);

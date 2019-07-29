@@ -2,7 +2,7 @@ import CircularProgress, { CircularProgressProps } from "@material-ui/core/Circu
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
-interface Props extends CircularProgressProps {
+export interface StreamSpinnerProps extends CircularProgressProps {
     onVisible?: () => void;
     disable: boolean;
 }
@@ -12,7 +12,7 @@ export default (
         onVisible,
         disable,
         ...props
-    }: Props
+    }: StreamSpinnerProps
 ) => {
     const hostElement = useRef<HTMLDivElement>(null);
     const [visibled, setVisiblity] = useState(false);

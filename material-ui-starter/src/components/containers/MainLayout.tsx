@@ -9,7 +9,9 @@ import styled from "styled-components";
 export default (
     {
         children
-    }: React.Props<{}>
+    }: {
+        children?: React.ReactNode
+    }
 ) => {
     const [location, setLocation] = useState<Location>(
         () => {

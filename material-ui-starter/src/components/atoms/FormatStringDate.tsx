@@ -99,7 +99,7 @@ const dateToFormatString = (date: Date, fmt: string, locale: "ja-JP" | "en-US", 
     return fmt.replace(re, replaceFn);
 };
 
-interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
+export interface FormatStringDateProps extends React.ComponentProps<"span"> {
     timestamp: number;
     format: string;
     isMillisec?: boolean;
@@ -115,7 +115,7 @@ export default (
         locale,
         pad,
         ...props
-    }: Props
+    }: FormatStringDateProps
 ) => (
     <span
         {... props}

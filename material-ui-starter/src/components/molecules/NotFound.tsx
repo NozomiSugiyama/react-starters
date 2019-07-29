@@ -5,7 +5,7 @@ import styled from "styled-components";
 const emojiList = ["(＝△＝)", "(´・ω・`)", "(＿´Д｀)", "(= ‐ω‐ =)", "(*ノω・*)"];
 
 export default (
-    props: React.HTMLAttributes<HTMLDivElement>
+    props: React.ComponentProps<typeof Host>
 ) => {
     const [emoji] = useState<string>(emojiList[Math.floor(Math.random() * emojiList.length)]);
 

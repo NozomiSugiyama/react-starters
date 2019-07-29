@@ -4,12 +4,10 @@ import {
 } from "@material-ui/core";
 import Snackbar, { SnackbarProps } from "@material-ui/core/Snackbar";
 import SnackbarContent, { SnackbarContentProps } from "@material-ui/core/SnackbarContent";
-import { SvgIconProps } from "@material-ui/core/SvgIcon";
 import CloseIcon from "@material-ui/icons/Close";
 import React, { useState } from "react";
 import styled from "styled-components";
 
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 type _X = Omit<SnackbarProps & { type: "error" | "info"}, "open"> & {
     open?: boolean
 };
@@ -61,9 +59,13 @@ export default (
     );
 };
 
-const StyledSnackbarContentBase = styled(SnackbarContent as React.SFC<SnackbarContentProps>)`
+interface SnackbarContentBaseProps extends SnackbarContentProps {
+    type: "error" | "info";
+}
+
+const StyledSnackbarContentBase = styled(SnackbarContent)<SnackbarContentBaseProps>`
     && {
-        ${(props: any) => props.type === "error" ? `background-color: ${props.theme.palette.error.dark}` : ""}
+        ${props => props.type === "error" ? `background-color: ${props.theme.palette.error.dark}` : ""}
     }
 `;
 
@@ -71,7 +73,7 @@ const StyledSnackbarContent = withTheme(
     (props: any) => <StyledSnackbarContentBase {...props}/>
 );
 
-const StyledCloseIcon = styled(CloseIcon as React.SFC<SvgIconProps>)`
+const StyledCloseIcon = styled(CloseIcon)`
     && {
         font-size: 1.5rem;
     }

@@ -8,7 +8,7 @@ interface State {
     emoji: string;
 }
 
-export default class extends React.Component<React.HTMLAttributes<HTMLDivElement>, State> {
+export default class extends React.Component<typeof Host, State> {
     state: State = {
         emoji: emojiList[Math.floor(Math.random() * emojiList.length)]
     };

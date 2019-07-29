@@ -11,7 +11,9 @@ interface Notification {
 export default (
     {
         children
-    }: React.Props<{}>
+    }: {
+        children?: React.ReactNode
+    }
 ) => {
 
     const [notifications, setNotification] = useState<Notification[]>([]);
