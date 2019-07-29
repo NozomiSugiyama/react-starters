@@ -14,7 +14,6 @@ export default (props: WorkListPageProps) => {
 
     return (
         <Host
-            ref={props.ref as any}
             {...props}
         >
             <Header

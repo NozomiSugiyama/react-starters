@@ -12,7 +12,6 @@ export default (props: NotFoundPageProps) => {
 
     return (
         <Page
-            ref={props.ref as any}
             {...props}
         >
             <Header
